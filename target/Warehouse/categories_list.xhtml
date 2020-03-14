@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Warehouse</title>
+</h:head>
+<h:body>
+	<b:navBar brand="Warehouse" brandHref="#" fixed="top" inverse="true">
+		<b:navbarLinks>
+			<b:navLink value="Producty" href="products_list.xhtml"></b:navLink>
+			<b:navLink value="Kategorie" href="categories_list.xhtml"></b:navLink>
+			<b:navLink value="Lista krytycznych stanów" href="#"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+	
+	
+	<br />
+	<br />
+	<br />
+
+	<b:container>
+		<b:jumbotron>
+			<h1>Kategorie</h1>
+			<p>Click button below to add new student to database.</p>
+
+			<h:form>
+				<b:commandButton class="btn btn-lg btn-info" id="add_std_btn"
+					value="Add Student" action="add_Student_Form"></b:commandButton>
+			</h:form>
+			<br />
+		</b:jumbotron>
+	</b:container>
+
+	<b:container>
+		<b:jumbotron>
+			<h2>Student list:</h2>
+			<!-- <h:form>
+				<b:dataTable value="#{studentController.students}" var="student"
+					onpage="console.log('page');">
+					<b:dataTableColumn value="#{student.firstName}" label="First Name" />
+					<b:dataTableColumn value="#{student.lastName}" label="Last Name" />
+					<b:dataTableColumn value="#{student.email}" label="Email Name" />
+					<b:dataTableColumn label="Update">
+						<b:commandLink icon="pencil"
+							action="#{studentController.onUpdate(student)}" />
+					</b:dataTableColumn>
+					<b:dataTableColumn label="Delete">
+						<b:commandLink icon="trash" 
+							action="#{studentController.deleteStudent(student.id)}"/>
+					</b:dataTableColumn>
+				</b:dataTable>
+			</h:form> -->
+		</b:jumbotron>
+	</b:container>
+
+</h:body>
+</html>
