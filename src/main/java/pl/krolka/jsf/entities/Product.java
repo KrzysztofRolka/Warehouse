@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "products")
@@ -22,8 +25,9 @@ public class Product {
 	@Column(name = "part_numb")
 	private String partNumb;
 
-	@Column(name = "categoty_id")
-	private int categoryId;
+	@ManyToOne 
+	@JoinColumn(name = "category_id")
+	private Category categoryId;
 
 	@Column(name = "in_stock_a")
 	private int inStockA;
@@ -41,8 +45,12 @@ public class Product {
 	private int minStock;
 
 	@Column(name = "description")
-	private int description;
-
+	private String description;
+	
+	@Transient
+	private int sumOfStocks;
+	
+	
 	public Product() {
 
 	}
@@ -71,11 +79,11 @@ public class Product {
 		this.partNumb = partNumb;
 	}
 
-	public int getCategoryId() {
+	public Category getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(Category categoryId) {
 		this.categoryId = categoryId;
 	}
 
@@ -119,12 +127,24 @@ public class Product {
 		this.minStock = minStock;
 	}
 
-	public int getDescription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(int description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	public int getSumOfStocks() {
+		return calculateSumOfStocks();
+	}
+
+	public void setSumOfStocks(int sumOfStocks) {
+		this.sumOfStocks = sumOfStocks;
+	}
+	
+	private int calculateSumOfStocks() {
+		return this.inStockA + this.inStockB + this.inStockC + this.inStockD;
+	}
+	
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Dodaj kategorie:</title>
+
+</h:head>
+<h:body>
+
+	<b:navBar brand="Warehouse" brandHref="#" fixed="top" inverse="true">
+		<b:navbarLinks>
+			<b:navLink value="Produkty" href="products_list.xhtml"></b:navLink>
+			<b:navLink value="Kategorie" href="categories_list.xhtml"></b:navLink>
+			<b:navLink value="Lista krytycznych stanów" href="#"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+
+	<br />
+	<br />
+	<br />
+
+	<b:container>
+		<b:jumbotron>
+
+			<h2>Edytuj kategorie:</h2>
+			
+			<p>Konwencja nazw: Do nadania nazw kategorii używamy rzeczownika w liczbie pojedynczej. Nazwę zaczynamy pisać wielką literą. Przed dodaniem kategorii upewnij się czy nie została ona stworzona wcześniej.</p>
+
+			<h:form>
+				<h:panelGrid columns="2">
+
+					<b:inputText id="inputTextName" label="Nazwa Kategorii"
+						placeholder="First Name"
+						value="#{categoryController.categoryToUpdate.name}">
+					</b:inputText>
+					<br />
+
+
+					<b:commandButton class="btn btn-lg btn-info" value="Zapisz"
+						id="button" action="#{categoryController.updateCategory()}"></b:commandButton>
+
+				</h:panelGrid>
+			</h:form>
+			<br />
+			<h:form>
+				<b:commandLink value="Powrót do kategorii.. "
+					action="categories_list" />
+			</h:form>
+
+		</b:jumbotron>
+	</b:container>
+
+</h:body>
+</html>

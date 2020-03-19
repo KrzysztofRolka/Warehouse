@@ -13,7 +13,7 @@
 <h:body>
 	<b:navBar brand="Warehouse" brandHref="#" fixed="top" inverse="true">
 		<b:navbarLinks>
-			<b:navLink value="Producty" href="products_list.xhtml"></b:navLink>
+			<b:navLink value="Produkty" href="products_list.xhtml"></b:navLink>
 			<b:navLink value="Kategorie" href="categories_list.xhtml"></b:navLink>
 			<b:navLink value="Lista krytycznych stanów" href="#"></b:navLink>
 		</b:navbarLinks>
@@ -27,11 +27,11 @@
 	<b:container>
 		<b:jumbotron>
 			<h1>Kategorie</h1>
-			<p>Click button below to add new student to database.</p>
+			<p>Kliknij przycisk poniżej by dodać nową kategorie do bazy danych.</p>
 
 			<h:form>
 				<b:commandButton class="btn btn-lg btn-info" id="add_std_btn"
-					value="Add Student" action="add_Student_Form"></b:commandButton>
+					value="Dodaj kategorie" action="add_category_form"></b:commandButton>
 			</h:form>
 			<br />
 		</b:jumbotron>
@@ -39,23 +39,21 @@
 
 	<b:container>
 		<b:jumbotron>
-			<h2>Student list:</h2>
-			<!-- <h:form>
-				<b:dataTable value="#{studentController.students}" var="student"
+			<h2>Kategorie:</h2>
+			<h:form>
+				<b:dataTable value="#{categoryController.categories}" var="category"
 					onpage="console.log('page');">
-					<b:dataTableColumn value="#{student.firstName}" label="First Name" />
-					<b:dataTableColumn value="#{student.lastName}" label="Last Name" />
-					<b:dataTableColumn value="#{student.email}" label="Email Name" />
+					<b:dataTableColumn value="#{category.name}" label="Nazwa" />
 					<b:dataTableColumn label="Update">
 						<b:commandLink icon="pencil"
-							action="#{studentController.onUpdate(student)}" />
+							action="#{categoryController.onUpdate(category)}" />
 					</b:dataTableColumn>
 					<b:dataTableColumn label="Delete">
 						<b:commandLink icon="trash" 
-							action="#{studentController.deleteStudent(student.id)}"/>
+							action="#{categoryController.deleteCategory(category.categoryId)}"/>
 					</b:dataTableColumn>
 				</b:dataTable>
-			</h:form> -->
+			</h:form>
 		</b:jumbotron>
 	</b:container>
 

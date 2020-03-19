@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Edytuj produkt:</title>
+
+</h:head>
+<h:body>
+
+	<b:navBar brand="Warehouse" brandHref="#" fixed="top" inverse="true">
+		<b:navbarLinks>
+			<b:navLink value="Produkty" href="products_list.xhtml"></b:navLink>
+			<b:navLink value="Kategorie" href="categories_list.xhtml"></b:navLink>
+			<b:navLink value="Lista krytycznych stanów" href="#"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+
+	<br />
+	<br />
+	<br />
+
+	<b:container>
+		<b:jumbotron>
+
+
+
+			<h2>Edytuj produkt:</h2>
+
+
+			<h:form>
+				<h:panelGrid columns="2" size="lg" >
+
+					<b:inputText id="inputTextName" label="Nazwa Produktu" placeholder="Nazwa Produktu" 
+					value="#{productController.productToUpdate.name}" >
+					</b:inputText>
+					
+					<b:inputText id="inputTextPartNumb" label="Numer Katalogowy" placeholder="Numer Katalogowy" 
+					value="#{productController.productToUpdate.partNumb}" offset="1">
+					</b:inputText>
+					
+					<b:selectOneMenu id="selectOneMenuCategories" value="#{productController.productToUpdate.categoryId}"  label="Kategoria">
+           				<f:selectItems value="#{categoryController.categories}" var="category"
+               			 itemValue="#{category}" itemLabel="#{category.name}" />
+        			</b:selectOneMenu>
+										
+					<b:inputText id="inputTextInStockA" label="Stan Warsztat" placeholder="Stan Warsztat" 
+					value="#{productController.productToUpdate.inStockA}" offset="1">
+					</b:inputText>
+					
+					<b:inputText id="inputTextInStockB" label="Stan Marcin" placeholder="Stan Marcin" 
+					value="#{productController.productToUpdate.inStockB}">
+					</b:inputText>
+					
+					<b:inputText id="inputTextInStockC" label="Stan Paweł" placeholder="Stan Paweł" 
+					value="#{productController.productToUpdate.inStockC}" offset="1">
+					</b:inputText>
+					
+					<b:inputText id="inputTextInStockD" label="Stan Krzysiek" placeholder="Stan Krzysiek" 
+					value="#{productController.productToUpdate.inStockD}">
+					</b:inputText>
+					
+					<b:inputText id="inputTextMinStock" label="Stan Minimalny" placeholder="Stan Minimalny" tooltip="Jeżeli chcesz wyłączyć opcje sprawdzania stanu minimalnego na tym produkcie wpisz wartość: -1."
+					value="#{productController.productToUpdate.minStock}" offset="1">
+					</b:inputText>
+					
+					
+					<b:inputTextarea id="inputTextDesc" label="Opis" placeholder="Opis" 
+					value="#{productController.productToUpdate.description}">
+					</b:inputTextarea>
+					
+					<br />
+
+					<b:commandButton class="btn btn-lg btn-info" value="Zapisz"
+						id="button" action="#{productController.updateProduct()}"></b:commandButton>
+
+				</h:panelGrid>
+			</h:form>
+			<br />
+			<h:form>
+				<b:commandLink value="Powrót do listy produktów."
+					action="products_list" />
+			</h:form>
+
+		</b:jumbotron>
+	</b:container>
+
+</h:body>
+</html>

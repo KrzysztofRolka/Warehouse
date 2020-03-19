@@ -13,7 +13,7 @@
 <h:body>
 	<b:navBar brand="Warehouse" brandHref="#" fixed="top" inverse="true">
 		<b:navbarLinks>
-			<b:navLink value="Producty" href="products_list.xhtml"></b:navLink>
+			<b:navLink value="Produkty" href="products_list.xhtml"></b:navLink>
 			<b:navLink value="Kategorie" href="categories_list.xhtml"></b:navLink>
 			<b:navLink value="Lista krytycznych stanów" href="#"></b:navLink>
 		</b:navbarLinks>
@@ -27,11 +27,11 @@
 	<b:container>
 		<b:jumbotron>
 			<h1>Produkty</h1>
-			<p>Click button below to add new student to database.</p>
+			<p>Kliknij przycisk poniżej by dodać nowy produkt do bazy danych.</p>
 
 			<h:form>
 				<b:commandButton class="btn btn-lg btn-info" id="add_std_btn"
-					value="Add Student" action="add_Student_Form"></b:commandButton>
+					value="Dodaj produkt" action="add_product_form"></b:commandButton>
 			</h:form>
 			<br />
 		</b:jumbotron>
@@ -39,23 +39,31 @@
 
 	<b:container>
 		<b:jumbotron>
-			<h2>Student list:</h2>
-			<!-- <h:form>
-				<b:dataTable value="#{studentController.students}" var="student"
-					onpage="console.log('page');">
-					<b:dataTableColumn value="#{student.firstName}" label="First Name" />
-					<b:dataTableColumn value="#{student.lastName}" label="Last Name" />
-					<b:dataTableColumn value="#{student.email}" label="Email Name" />
-					<b:dataTableColumn label="Update">
+			<h2>Produkty:</h2>
+			<h:form>
+				<b:dataTable value="#{productController.products}" var="product" style="width:100%"
+               		onpage="console.log('page');" scroll-x="true" select="true"
+               	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', exportOptions: {columns: ':visible'}}]">
+					<b:dataTableColumn value="#{product.name}" label="Nazwa" />
+					<b:dataTableColumn value="#{product.partNumb}" label="Numer katalogowy" />
+					<b:dataTableColumn value="#{product.categoryId.name}" label="Kategoria" />
+					<b:dataTableColumn value="#{product.inStockA}" label="Ilość Warsztat" />
+					<b:dataTableColumn value="#{product.inStockB}" label="Ilość Marcin" />
+					<b:dataTableColumn value="#{product.inStockC}" label="Ilość Paweł" />
+					<b:dataTableColumn value="#{product.inStockD}" label="Ilość Krzysiek" />
+					<b:dataTableColumn value="#{product.minStock}" label="Stan minimalny" content-style="color:red; font-weight:bold" />
+					<b:dataTableColumn value="#{product.sumOfStocks}" label="STAN" content-style="color:green; font-weight:bold"/>
+					<b:dataTableColumn value="#{product.description}" label="Opis" />
+					<b:dataTableColumn label="Edytuj">
 						<b:commandLink icon="pencil"
-							action="#{studentController.onUpdate(student)}" />
+							action="#{productController.onUpdate(product)}" />
 					</b:dataTableColumn>
-					<b:dataTableColumn label="Delete">
+					<b:dataTableColumn label="Usuń">
 						<b:commandLink icon="trash" 
-							action="#{studentController.deleteStudent(student.id)}"/>
+							action="#{productController.deleteProduct(product.productId)}"/>
 					</b:dataTableColumn>
 				</b:dataTable>
-			</h:form> -->
+			</h:form>
 		</b:jumbotron>
 	</b:container>
 
