@@ -11,13 +11,31 @@
 	<title>Dodaj kategorie:</title>
 
 </h:head>
-<h:body>
+<h:body style="padding-top: 50px; padding-bottom: 20px;">>
 
 	<b:navBar brand="Warehouse" brandHref="#" fixed="top" inverse="true">
 		<b:navbarLinks>
-			<b:navLink value="Produkty" href="products_list.xhtml"></b:navLink>
-			<b:navLink value="Kategorie" href="categories_list.xhtml"></b:navLink>
-			<b:navLink value="Lista krytycznych stanów" href="#"></b:navLink>
+			 	<b:dropMenu value="Magazyn">
+                    <b:navLink value="Zmiana stanu" href="#"></b:navLink>
+                    <b:navLink value="Stany krytyczne" href="low_stock_list.xhtml"></b:navLink>
+                    <b:navLink value="Cennik klienta" href="#"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Baza danych"></b:navLink>
+                    <b:navLink value="Lista Produktów" href="products_list.xhtml"></b:navLink>
+                    <b:navLink value="Lista Kategorii" href="categories_list.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Zadania">
+                    <b:navLink value="(wkrótce..Lista zadań)" href="#"></b:navLink>
+                    <b:navLink value="(wkrótce..Dodaj nowe)" href="#"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Firma">
+                    <b:navLink value="(wkrótce..Lista maszyn)" href="#"></b:navLink>
+                    <b:navLink value="(wkrótce..Lista klientów)" href="#"></b:navLink>
+                </b:dropMenu>
+                 <b:dropMenu value="Administracja">
+                    <b:navLink value="(wkrótce.. Użytkownicy)" href="#"></b:navLink>
+                    <b:navLink value="(wkrótce.. Ustawienia)" href="#"></b:navLink>
+                </b:dropMenu>
 		</b:navbarLinks>
 	</b:navBar>
 

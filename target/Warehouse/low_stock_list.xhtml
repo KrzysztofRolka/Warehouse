@@ -8,7 +8,7 @@
 	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-	<title>Lista produktów</title>
+	<title><b>Lista stanów krytycznych</b></title>
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">>
 
@@ -37,30 +37,12 @@
                 </b:dropMenu>
 		</b:navbarLinks>
 	</b:navBar>
-	
-	
-	<br />
-	<br />
-	<br />
 
 	<b:container>
 		<b:jumbotron>
-			<h1>Produkty</h1>
-			<p>Kliknij przycisk poniżej by dodać nowy produkt do bazy danych.</p>
-
+			<h2>Lista krytycznych stanów:</h2>
 			<h:form>
-				<b:commandButton class="btn btn-lg btn-info" id="add_std_btn"
-					value="Dodaj produkt" action="add_product_form"></b:commandButton>
-			</h:form>
-			<br />
-		</b:jumbotron>
-	</b:container>
-
-	<b:container>
-		<b:jumbotron>
-			<h2>Produkty:</h2>
-			<h:form>
-				<b:dataTable value="#{productController.products}" var="product" style="width:100%"
+				<b:dataTable value="#{productController.productsLowStock}" var="product" style="width:100%"
                		onpage="console.log('page');" scroll-x="true" select="true"
                	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', exportOptions: {columns: ':visible'}}]">
 					<b:dataTableColumn value="#{product.name}" label="Nazwa" />
@@ -73,14 +55,6 @@
 					<b:dataTableColumn value="#{product.minStock}" label="Stan minimalny" content-style="color:red; font-weight:bold" />
 					<b:dataTableColumn value="#{product.sumOfStocks}" label="STAN" content-style="color:green; font-weight:bold"/>
 					<b:dataTableColumn value="#{product.description}" label="Opis" />
-					<b:dataTableColumn label="Edytuj">
-						<b:commandLink icon="pencil"
-							action="#{productController.onUpdate(product)}" />
-					</b:dataTableColumn>
-					<b:dataTableColumn label="Usuń">
-						<b:commandLink icon="trash" 
-							action="#{productController.deleteProduct(product.productId)}"/>
-					</b:dataTableColumn>
 				</b:dataTable>
 			</h:form>
 		</b:jumbotron>
