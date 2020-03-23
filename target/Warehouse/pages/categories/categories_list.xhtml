@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Lista kategorii</title>
+</h:head>
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+
+	<ui:include src="/pages/shared/navBar.xhtml" />
+	
+	<br />
+	<br />
+	<br />
+
+	<b:container>
+		<b:jumbotron>
+			<h1>Kategorie</h1>
+			<p>Kliknij przycisk poniżej by dodać nową kategorie do bazy danych.</p>
+
+			<h:form>
+				<b:commandButton class="btn btn-lg btn-info" id="add_std_btn"
+					value="Dodaj kategorie" action="add_category_form"></b:commandButton>
+			</h:form>
+			<br />
+		</b:jumbotron>
+	</b:container>
+
+	<b:container>
+		<b:jumbotron>
+			<h2>Kategorie:</h2>
+			<h:form>
+				<b:dataTable value="#{categoryController.categories}" var="category"
+					onpage="console.log('page');">
+					<b:dataTableColumn value="#{category.name}" label="Nazwa" />
+					<b:dataTableColumn label="Update">
+						<b:commandLink icon="pencil"
+							action="#{categoryController.onUpdate(category)}" />
+					</b:dataTableColumn>
+					<b:dataTableColumn label="Delete">
+						<b:commandLink icon="trash" 
+							action="#{categoryController.deleteCategory(category.categoryId)}"/>
+					</b:dataTableColumn>
+				</b:dataTable>
+			</h:form>
+		</b:jumbotron>
+	</b:container>
+
+</h:body>
+</html>

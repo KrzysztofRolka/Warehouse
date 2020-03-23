@@ -1,0 +1,35 @@
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+	<b:navBar brand="Warehouse" brandHref="#" fixed="top" inverse="true">
+		<b:navbarLinks>
+		<b:navLink value="Strona główna" outcome="/pages/dashboard/home.xhtml" iconAwesome="dashboard" icon-size="1x"></b:navLink>
+			 	<b:dropMenu value="Magazyn" iconAwesome="cubes" icon-size="1x">
+                    <b:navLink value="Zmiana stanu" href="#" iconAwesome="gears" icon-size="1x"></b:navLink>
+                    <b:navLink value="Stany krytyczne" outcome="/pages/products/low_stock_list.xhtml" iconAwesome="times-rectangle-o" icon-size="1x"></b:navLink>
+                    <b:navLink value="Cennik klienta" href="#" iconAwesome="usd" icon-size="1x"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Baza danych"></b:navLink>
+                    <b:navLink value="Lista Produktów" outcome="/pages/products/products_list.xhtml" iconAwesome="database" icon-size="1x"></b:navLink>
+                    <b:navLink value="Lista Kategorii" outcome="/pages/categories/categories_list.xhtml" iconAwesome="database" icon-size="1x"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Zadania">
+                    <b:navLink value="(wkrótce..Lista zadań)" href="#"></b:navLink>
+                    <b:navLink value="(wkrótce..Dodaj nowe)" href="#"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Firma">
+                    <b:navLink value="(wkrótce..Lista maszyn)" href="#"></b:navLink>
+                    <b:navLink value="(wkrótce..Lista klientów)" href="#"></b:navLink>
+                </b:dropMenu>
+                 <b:dropMenu value="Administracja">
+                    <b:navLink value="(wkrótce.. Użytkownicy)" href="#"></b:navLink>
+                    <b:navLink value="(wkrótce.. Ustawienia)" href="#"></b:navLink>
+                </b:dropMenu>
+		</b:navbarLinks>
+	</b:navBar>
+	
+</ui:composition>
