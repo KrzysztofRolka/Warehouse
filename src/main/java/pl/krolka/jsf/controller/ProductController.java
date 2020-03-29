@@ -87,4 +87,10 @@ public class ProductController implements Serializable {
 		return "update_product_form";
 	}
 	
+	public String addItemsToMultipleProduct() {
+		
+		return "products_list";
+	}
+	
+	
 }

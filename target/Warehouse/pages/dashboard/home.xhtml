@@ -18,11 +18,30 @@
 	<br />
 	<br />
 	
-	<b:container>
-		<b:jumbotron>
-			<h2>Strona główna</h2>
-		</b:jumbotron>
+    <b:container>
+		 <b:jumbotron>
+            <b:row>
+            <h2>Magazyn</h2>
+                <b:column col-md="4">
+                    <h2>Zmiana Stanu</h2>
+                    <p>Moduł pozwalający na zmianę stanów produktów. Przyjmowanie i ściąganie towarów ze stanu.</p>
+                    <p><b:button look="primary" outcome="/pages/products/change_stock.xhtml" value="Zmiana Stanu"/></p>
+                </b:column>
+                <b:column col-md="4">
+                    <h2>Stany krytyczne</h2>
+                    <p>Lista towarów, których łączny stan jest mniejszy lub równy stanowi minimalnemu.</p>
+                    <p><b:button look="primary" outcome="/pages/products/low_stock_list.xhtml" value="Stany krytyczne"/></p>
+                </b:column>
+                <b:column col-md="4">
+                    <h2>Cennik</h2>
+                    <p>Poglądowy cennik za towary i usługi.</p>
+                    <p><b:button look="primary" outcome="" value="View details »"/></p>
+                </b:column>
+            </b:row>
+            <hr/>
+		 </b:jumbotron>
 	</b:container>
+
 
 </h:body>
 </html>

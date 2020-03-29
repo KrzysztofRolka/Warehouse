@@ -50,6 +50,9 @@ public class Product {
 	@Transient
 	private int sumOfStocks;
 	
+	@Transient
+	private int amount;
+	
 	
 	public Product() {
 
@@ -143,6 +146,15 @@ public class Product {
 		this.sumOfStocks = sumOfStocks;
 	}
 	
+	
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
 	private int calculateSumOfStocks() {
 		return this.inStockA + this.inStockB + this.inStockC + this.inStockD;
 	}
