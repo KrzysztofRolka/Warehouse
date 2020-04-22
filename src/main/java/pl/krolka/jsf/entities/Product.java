@@ -44,6 +44,9 @@ public class Product {
 	@Column(name = "min_stock")
 	private int minStock;
 
+	@Column(name = "price")
+	private int price;
+	
 	@Column(name = "description")
 	private String description;
 	
@@ -51,7 +54,7 @@ public class Product {
 	private int sumOfStocks;
 	
 	@Transient
-	private int amount;
+	private double priceWithVAT;
 	
 	
 	public Product() {
@@ -130,6 +133,14 @@ public class Product {
 		this.minStock = minStock;
 	}
 
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -146,17 +157,21 @@ public class Product {
 		this.sumOfStocks = sumOfStocks;
 	}
 	
-	
-	public int getAmount() {
-		return amount;
+
+	public double getPriceWithVAT() {
+		return calculatePriceWithVat();
 	}
 
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setPriceWithVAT(double priceWithVAT) {
+		this.priceWithVAT = priceWithVAT;
 	}
 
 	private int calculateSumOfStocks() {
 		return this.inStockA + this.inStockB + this.inStockC + this.inStockD;
+	}
+	
+	private double calculatePriceWithVat() {
+		return this.price * 1.23; 
 	}
 	
 }

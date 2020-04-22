@@ -19,7 +19,7 @@
 	<br />
 
 	<b:container fluid="true">
-		<b:jumbotron>
+		<b:well>
 			<h1>Produkty</h1>
 			<p>Kliknij przycisk poniżej by dodać nowy produkt do bazy danych.</p>
 
@@ -28,7 +28,7 @@
 					value="Dodaj produkt" action="add_product_form"></b:commandButton>
 			</h:form>
 			<br />
-		</b:jumbotron>
+		</b:well>
 	</b:container>
 
 	<b:container fluid="true">
@@ -47,6 +47,7 @@
 					<b:dataTableColumn value="#{product.inStockD}" label="Ilość Krzysiek" />
 					<b:dataTableColumn value="#{product.minStock}" label="Stan minimalny" content-style="color:red; font-weight:bold" />
 					<b:dataTableColumn value="#{product.sumOfStocks}" label="STAN" content-style="color:green; font-weight:bold"/>
+					<b:dataTableColumn value="#{product.price}" label="Cena" />
 					<b:dataTableColumn value="#{product.description}" label="Opis" />
 					<b:dataTableColumn label="Edytuj">
 						<b:commandLink icon="pencil"

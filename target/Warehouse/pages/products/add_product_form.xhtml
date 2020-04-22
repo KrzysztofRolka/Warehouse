@@ -63,9 +63,12 @@
 					value="#{productController.product.minStock}" offset="1">
 					</b:inputText>
 					
+					<b:inputText id="inputTextPrice" label="Cena" placeholder="Cena Netto" tooltip="Cenę podajemy liczbą całkowitą"
+					value="#{productController.product.price}">
+					</b:inputText>
 					
 					<b:inputTextarea id="inputTextDesc" label="Opis" placeholder="Opis" 
-					value="#{productController.product.description}">
+					value="#{productController.product.description}" offset="1">
 					</b:inputTextarea>
 					
 					<br />

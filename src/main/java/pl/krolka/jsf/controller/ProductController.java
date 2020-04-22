@@ -24,6 +24,8 @@ public class ProductController implements Serializable {
 	
 	private List<Product> productsLowStock;
 	
+	private List<Product> productsWithPrice;
+
 	private Product product;
 	
 	private Product productToUpdate;
@@ -48,6 +50,11 @@ public class ProductController implements Serializable {
 	public List<Product> getProductsLowStock() {
 		return productsLowStock;
 	}
+	
+
+	public List<Product> getProductsWithPrice() {
+		return productsWithPrice;
+	}
 
 	public Product getProductToUpdate() {
 		return productToUpdate;
@@ -57,6 +64,7 @@ public class ProductController implements Serializable {
 	public void OnSetup() {
 		products = productDAO.findAll();
 		productsLowStock = productDAO.findAllLowStock();
+		productsWithPrice = productDAO.findAllWithPrice();
 	}
 	
 	public String addProduct() {
@@ -64,6 +72,7 @@ public class ProductController implements Serializable {
 		product = new Product();
 		products = productDAO.findAll();
 		productsLowStock = productDAO.findAllLowStock();
+		productsWithPrice = productDAO.findAllWithPrice();
 		return "products_list";
 	}
 	
@@ -71,6 +80,7 @@ public class ProductController implements Serializable {
 		productDAO.delete(id);
 		products = productDAO.findAll();
 		productsLowStock = productDAO.findAllLowStock();
+		productsWithPrice = productDAO.findAllWithPrice();
 		return "products_list";
 	}
 
@@ -78,6 +88,7 @@ public class ProductController implements Serializable {
 		productDAO.update(productToUpdate);
 		products = productDAO.findAll();
 		productsLowStock = productDAO.findAllLowStock();
+		productsWithPrice = productDAO.findAllWithPrice();
 		productToUpdate = new Product();
 		return "products_list";
 	}

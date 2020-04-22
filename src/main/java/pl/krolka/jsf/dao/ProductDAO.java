@@ -36,6 +36,12 @@ public class ProductDAO {
 
 		return lowStockList;
 	}
+	
+	public List<Product> findAllWithPrice() {
+		TypedQuery<Product> query = entityManager.createQuery("SELECT s FROM Product s WHERE s.price > 0", Product.class);
+		return query.getResultList();
+	}
+
 
 	public void add(Product product) {
 		entityManager.persist(product);
