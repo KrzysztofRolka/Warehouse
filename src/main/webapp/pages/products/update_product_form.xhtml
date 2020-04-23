@@ -67,8 +67,11 @@
 					value="#{productController.productToUpdate.price}">
 					</b:inputText>
 					
+					<b:switch value="#{productController.productToUpdate.requiredItem}" label="Wymagany ?"
+              		 offText="NIE" onText="TAK" offset="1"/>
+					
 					<b:inputTextarea id="inputTextDesc" label="Opis" placeholder="Opis" 
-					value="#{productController.productToUpdate.description}" offset="1">
+					value="#{productController.productToUpdate.description}" >
 					</b:inputTextarea>
 					
 					<br />

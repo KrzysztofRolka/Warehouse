@@ -47,6 +47,9 @@ public class Product {
 	@Column(name = "price")
 	private int price;
 	
+	@Column(name = "required_item")
+	private boolean requiredItem;
+	
 	@Column(name = "description")
 	private String description;
 	
@@ -139,6 +142,14 @@ public class Product {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	
+	public boolean isRequiredItem() {
+		return requiredItem;
+	}
+
+	public void setRequiredItem(boolean requiredItem) {
+		this.requiredItem = requiredItem;
 	}
 
 	public String getDescription() {

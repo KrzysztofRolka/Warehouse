@@ -8,7 +8,9 @@
 	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
+	<h:outputStylesheet library="css" name="warehouse.css" />
 	<title>Lista produktów</title>
+	
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
@@ -37,6 +39,7 @@
 			<h:form>
 				<b:dataTable value="#{productController.products}" var="product" style="width:100%"
                		onpage="console.log('page');" scroll-x="true" select="true"
+               		row-style-class="#{product.requiredItem==true?'blueRow':'blackRow'}"
                	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', exportOptions: {columns: ':visible'}}]">
 					<b:dataTableColumn value="#{product.name}" label="Nazwa" />
 					<b:dataTableColumn value="#{product.partNumb}" label="Numer katalogowy" />
@@ -48,6 +51,7 @@
 					<b:dataTableColumn value="#{product.minStock}" label="Stan minimalny" content-style="color:red; font-weight:bold" />
 					<b:dataTableColumn value="#{product.sumOfStocks}" label="STAN" content-style="color:green; font-weight:bold"/>
 					<b:dataTableColumn value="#{product.price}" label="Cena" />
+					<b:dataTableColumn value="#{product.requiredItem==true?'TAK':'NIE'}"  label="Wymagany" />
 					<b:dataTableColumn value="#{product.description}" label="Opis" />
 					<b:dataTableColumn label="Edytuj">
 						<b:commandLink icon="pencil"
