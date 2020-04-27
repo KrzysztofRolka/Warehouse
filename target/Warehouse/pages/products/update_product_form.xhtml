@@ -31,12 +31,16 @@
 				<h:panelGrid columns="2" size="lg" >
 
 					<b:inputText id="inputTextName" label="Nazwa Produktu" placeholder="Nazwa Produktu" 
-					value="#{productController.productToUpdate.name}" >
+					value="#{productController.productToUpdate.name}" required="true" requiredMessage="Pole Nazwa Produktu jest wymagane!"
+					maxlength="45" validator="inputTextValidator">
 					</b:inputText>
 					
 					<b:inputText id="inputTextPartNumb" label="Numer Katalogowy" placeholder="Numer Katalogowy" 
-					value="#{productController.productToUpdate.partNumb}" offset="1">
+					value="#{productController.productToUpdate.partNumb}" required="true" requiredMessage="Pole Numer Katalogowy jest wymagane!"
+					maxlength="45" validator="inputTextValidator" offset="1">
 					</b:inputText>
+					<b:message for="inputTextName"/>
+					<b:message for="inputTextPartNumb"/>
 					
 					<b:selectOneMenu id="selectOneMenuCategories" value="#{productController.productToUpdate.categoryId}"  label="Kategoria">
            				<f:selectItems value="#{categoryController.categories}" var="category"
@@ -44,34 +48,34 @@
         			</b:selectOneMenu>
 										
 					<b:inputText id="inputTextInStockA" label="Stan Warsztat" placeholder="Stan Warsztat" 
-					value="#{productController.productToUpdate.inStockA}" offset="1">
+					value="#{productController.productToUpdate.inStockA}" mask="numeric" offset="1">
 					</b:inputText>
 					
 					<b:inputText id="inputTextInStockB" label="Stan Marcin" placeholder="Stan Marcin" 
-					value="#{productController.productToUpdate.inStockB}">
+					value="#{productController.productToUpdate.inStockB}" mask="numeric">
 					</b:inputText>
 					
 					<b:inputText id="inputTextInStockC" label="Stan Paweł" placeholder="Stan Paweł" 
-					value="#{productController.productToUpdate.inStockC}" offset="1">
+					value="#{productController.productToUpdate.inStockC}" mask="numeric" offset="1">
 					</b:inputText>
 					
 					<b:inputText id="inputTextInStockD" label="Stan Krzysiek" placeholder="Stan Krzysiek" 
-					value="#{productController.productToUpdate.inStockD}">
+					value="#{productController.productToUpdate.inStockD}" mask="numeric">
 					</b:inputText>
 					
 					<b:inputText id="inputTextMinStock" label="Stan Minimalny" placeholder="Stan Minimalny" tooltip="Jeżeli chcesz wyłączyć opcje sprawdzania stanu minimalnego na tym produkcie wpisz wartość: -1."
-					value="#{productController.productToUpdate.minStock}" offset="1">
+					value="#{productController.productToUpdate.minStock}" mask="numeric" offset="1">
 					</b:inputText>
 					
 					<b:inputText id="inputTextPrice" label="Cena" placeholder="Cenna netto" tooltip="Cenę podajemy liczbą całkowitą"
-					value="#{productController.productToUpdate.price}">
+					value="#{productController.productToUpdate.price}" mask="numeric">
 					</b:inputText>
 					
 					<b:switch value="#{productController.productToUpdate.requiredItem}" label="Wymagany ?"
               		 offText="NIE" onText="TAK" offset="1"/>
 					
 					<b:inputTextarea id="inputTextDesc" label="Opis" placeholder="Opis" 
-					value="#{productController.productToUpdate.description}" >
+					value="#{productController.productToUpdate.description}" maxlength="255">
 					</b:inputTextarea>
 					
 					<br />

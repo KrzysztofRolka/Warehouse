@@ -8,6 +8,7 @@
 	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
+
 	<title>Dodaj kategorie:</title>
 
 </h:head>
@@ -24,27 +25,32 @@
 
 			<h2>Edytuj kategorie:</h2>
 			
-			<p>Konwencja nazw: Do nadania nazw kategorii używamy rzeczownika w liczbie pojedynczej. Nazwę zaczynamy pisać wielką literą. Przed dodaniem kategorii upewnij się czy nie została ona stworzona wcześniej.</p>
+			<p>Konwencja nazw: Do nadania nazw kategorii używamy rzeczownika w liczbie pojedynczej. 
+			Nazwę zaczynamy pisać wielką literą. Przed dodaniem kategorii upewnij się czy nie 
+			została ona stworzona wcześniej.</p>
 
 			<h:form>
 				<h:panelGrid columns="2">
 
 					<b:inputText id="inputTextName" label="Nazwa Kategorii"
-						placeholder="First Name"
-						value="#{categoryController.categoryToUpdate.name}">
+						placeholder="Nazwa Kategorii"
+						value="#{categoryController.categoryToUpdate.name}" required="true" requiredMessage="Pole Nazwa Kategorii jest wymagane!"
+						maxlength="45" validator="inputTextValidator">
 					</b:inputText>
-					<br />
-
+					
+					<b:message for="inputTextName" offset="1"/>
 
 					<b:commandButton class="btn btn-lg btn-info" value="Zapisz"
-						id="button" action="#{categoryController.updateCategory()}"></b:commandButton>
+						id="button" action="#{categoryController.updateCategory()}">
+					</b:commandButton>
 
 				</h:panelGrid>
 			</h:form>
+			
 			<br />
+			
 			<h:form>
-				<b:commandLink value="Powrót do kategorii.. "
-					action="categories_list" />
+				<b:commandLink value="Powrót do kategorii.. " action="categories_list" />
 			</h:form>
 
 		</b:jumbotron>

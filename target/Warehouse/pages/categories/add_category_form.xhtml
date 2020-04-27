@@ -7,7 +7,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:b="http://bootsfaces.net/ui">
 
-<h:head>
+<h:head> 
 	<title>Dodaj kategorie:</title>
 
 </h:head>
@@ -22,35 +22,38 @@
 	<b:container>
 		<b:jumbotron>
 
-
-
 			<h2>Dodaj kategorie:</h2>
 			
-			<p>Konwencja nazw: Do nadania nazw kategorii używamy rzeczownika w liczbie pojedynczej. Nazwę zaczynamy pisać wielką literą. Przed dodaniem kategorii upewnij się czy nie została ona stworzona wcześniej.</p>
+			<p>Konwencja nazw: Do nadania nazw kategorii używamy rzeczownika w liczbie pojedynczej. 
+			Nazwę zaczynamy pisać wielką literą. Przed dodaniem kategorii upewnij się czy nie została 
+			ona stworzona wcześniej.</p>
 
 			<h:form>
 				<h:panelGrid columns="2">
-
+				
 					<b:inputText id="inputTextName" label="Nazwa Kategorii"
 						placeholder="Nazwa Kategorii"
-						value="#{categoryController.category.name}">
+						value="#{categoryController.category.name}" required="true" requiredMessage="Pole Nazwa Kategorii jest wymagane!"
+						maxlength="45" validator="inputTextValidator">
 					</b:inputText>
-					<br />
-
-
+					
+					<b:message for="inputTextName"/>
+					
 					<b:commandButton class="btn btn-lg btn-info" value="Zapisz"
-						id="button" action="#{categoryController.addCategory()}"></b:commandButton>
-
+						id="button" action="#{categoryController.addCategory()}">
+					</b:commandButton>
+					
 				</h:panelGrid>
 			</h:form>
+			
 			<br />
+			
 			<h:form>
-				<b:commandLink value="Powrót do listy kategorii. "
-					action="categories_list" />
+				<b:commandLink value="Powrót do listy kategorii. " action="categories_list" />
 			</h:form>
 
 		</b:jumbotron>
 	</b:container>
-
+	
 </h:body>
 </html>

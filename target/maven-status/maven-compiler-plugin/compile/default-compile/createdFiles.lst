@@ -3,4 +3,5 @@ pl\krolka\jsf\dao\CategoryDAO.class
 pl\krolka\jsf\dao\ProductDAO.class
 pl\krolka\jsf\entities\Product.class
 pl\krolka\jsf\controller\ProductController.class
+pl\krolka\jsf\validator\InputTextValidator.class
 pl\krolka\jsf\entities\Category.class
