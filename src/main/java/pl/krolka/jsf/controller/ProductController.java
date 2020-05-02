@@ -30,6 +30,8 @@ public class ProductController implements Serializable {
 	
 	private Product productToUpdate;
 	
+	private Product productDetail;
+	
 	public ProductController() {
 		product = new Product();
 	}
@@ -60,6 +62,11 @@ public class ProductController implements Serializable {
 		return productToUpdate;
 	}
 	
+	
+	public Product getProductDetail() {
+		return productDetail;
+	}
+
 	@PostConstruct
 	public void OnSetup() {
 		products = productDAO.findAll();
@@ -98,10 +105,9 @@ public class ProductController implements Serializable {
 		return "update_product_form";
 	}
 	
-	public String addItemsToMultipleProduct() {
-		
-		return "products_list";
+	public String showDetail(Product product) {
+		productDetail = product;
+		return "detail_product";
 	}
-	
 	
 }

@@ -41,7 +41,9 @@
                		onpage="console.log('page');" scroll-x="true" select="true"
                		row-style-class="#{product.requiredItem==true?'blueRow':'blackRow'}"
                	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', exportOptions: {columns: ':visible'}}]">
-					<b:dataTableColumn value="#{product.name}" label="Nazwa" />
+					<b:dataTableColumn label="Nazwa" value="#{product.name} ">
+						<b:commandLink icon="search" action="#{productController.showDetail(product)}"/>
+					</b:dataTableColumn>
 					<b:dataTableColumn value="#{product.partNumb}" label="Numer katalogowy" />
 					<b:dataTableColumn value="#{product.categoryId.name}" label="Kategoria" />
 					<b:dataTableColumn value="#{product.inStockA}" label="Ilość Warsztat" />
