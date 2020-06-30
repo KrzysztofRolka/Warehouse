@@ -12,14 +12,14 @@
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
-	<ui:include src="/pages/shared/navBar.xhtml" />
+	<ui:include src="/pages/shared/navbar.xhtml" />
 	
 	<br />
 	<br />
 	<br />
 
 	<b:container>
-		<b:jumbotron>
+		<b:well>
 			<h1>Kategorie</h1>
 			<p>Kliknij przycisk poniżej by dodać nową kategorie do bazy danych.</p>
 
@@ -28,12 +28,13 @@
 					value="Dodaj kategorie" action="add_category_form"></b:commandButton>
 			</h:form>
 			<br />
-		</b:jumbotron>
+		</b:well>
 	</b:container>
 
 	<b:container>
 		<b:jumbotron>
 			<h2>Kategorie:</h2>
+			<br />
 			<h:form>
 				<b:dataTable value="#{categoryController.categories}" var="category"
 					onpage="console.log('page');">

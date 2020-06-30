@@ -13,7 +13,7 @@
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
-	<ui:include src="/pages/shared/navBar.xhtml" />
+	<ui:include src="/pages/shared/navbar.xhtml" />
 
 	<br />
 	<br />
@@ -25,7 +25,7 @@
 
 
 			<h2>Dodaj produkt:</h2>
-
+			<br />
 
 			<h:form>
 				<h:panelGrid columns="2" size="lg" >
@@ -65,7 +65,7 @@
 					</b:inputText>
 					
 					<b:inputText id="inputTextMinStock" label="Stan Minimalny" placeholder="Stan Minimalny" tooltip="Jeżeli chcesz wyłączyć opcje sprawdzania stanu minimalnego na tym produkcie wpisz wartość: -1."
-					value="#{productController.product.minStock}" mask="numeric" offset="1">
+					value="#{productController.product.minStock}" mask="numeric" style="color:red; font-weight:bold" offset="1">
 					</b:inputText>
 					
 					<b:inputText id="inputTextPrice" label="Cena" placeholder="Cena Netto" tooltip="Cenę podajemy liczbą całkowitą"

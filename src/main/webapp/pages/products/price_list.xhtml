@@ -12,15 +12,21 @@
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
-	<ui:include src="/pages/shared/navBar.xhtml" />
+	<ui:include src="/pages/shared/navbar.xhtml" />
 	
+	<br />
+	<br />
+	<br />
+
+
 	<b:container>
 		<b:jumbotron>
 			<h2>Cennik:</h2>
+			<br />
 			<h:form>
-				<b:dataTable value="#{productController.productsWithPrice}" var="product" style="width:100%"
+				<b:dataTable value="#{productController.productsWithPrice}" var="product" style="width:100%" responsive="true"
                		onpage="console.log('page');" scroll-x="true" select="true"
-               	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', exportOptions: {columns: ':visible'}}]">
+               	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A4', exportOptions: {columns: ':visible'}}]">
 					<b:dataTableColumn value="#{product.name}" label="Nazwa" />
 					<b:dataTableColumn value="#{product.partNumb}" label="Numer katalogowy" />
 					<b:dataTableColumn value="#{product.categoryId.name}" label="Kategoria" />

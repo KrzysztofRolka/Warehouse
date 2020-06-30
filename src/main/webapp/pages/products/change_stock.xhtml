@@ -13,17 +13,18 @@
 
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
-	<ui:include src="/pages/shared/navBar.xhtml" />
+	<ui:include src="/pages/shared/navbar.xhtml" />
 
 	<br />
 	<br />
 	<br />
 
-	<b:container >
+	<b:container fluid="true">
 		<b:jumbotron>
 		<h2>Zmiana stanu:</h2>
+		<br />
 		<h:form>
-				<b:dataTable value="#{productController.products}" var="product" scroll-x="true" select="false" columnVisibility="true" width="5em" >
+				<b:dataTable value="#{productController.products}" var="product" scroll-x="true" select="false" columnVisibility="true" width="5em" responsive="true">
                		
 					<b:dataTableColumn value="#{product.name}" label="Nazwa" />
 					

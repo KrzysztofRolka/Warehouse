@@ -13,7 +13,7 @@
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
-	<ui:include src="/pages/shared/navBar.xhtml" />
+	<ui:include src="/pages/shared/navbar.xhtml" />
 
 	<br />
 	<br />
@@ -25,7 +25,7 @@
 
 
 			<h2>Informacje o produkcie:</h2>
-
+			<br />
 
 			<h:form>
 				<h:panelGrid columns="2" size="lg" >
@@ -73,6 +73,10 @@
 					<b:inputTextarea id="inputTextDesc" label="Opis" placeholder="Opis" 
 					value="#{productController.productDetail.description}" disabled="true">
 					</b:inputTextarea>
+					
+					<b:inputText id="inputTextSumOfStocks" label="Stan" placeholder="Stan" 
+					value="#{productController.productDetail.sumOfStocks}" disabled="true" offset="1">
+					</b:inputText>
 					
 				</h:panelGrid>
 			</h:form>

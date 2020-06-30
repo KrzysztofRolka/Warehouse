@@ -14,7 +14,7 @@
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
-	<ui:include src="/pages/shared/navBar.xhtml" />
+	<ui:include src="/pages/shared/navbar.xhtml" />
 	
 	<br />
 	<br />
@@ -36,11 +36,12 @@
 	<b:container fluid="true">
 		<b:jumbotron>
 			<h2>Produkty:</h2>
+			<br />
 			<h:form>
-				<b:dataTable value="#{productController.products}" var="product" style="width:100%"
+				<b:dataTable value="#{productController.products}" var="product" style="width:100%" responsive="true"
                		onpage="console.log('page');" scroll-x="true" select="true"
                		row-style-class="#{product.requiredItem==true?'blueRow':'blackRow'}"
-               	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', exportOptions: {columns: ':visible'}}]">
+               	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A3', exportOptions: {columns: ':visible'}}]">
 					<b:dataTableColumn label="Nazwa" value="#{product.name} ">
 						<b:commandLink icon="search" action="#{productController.showDetail(product)}"/>
 					</b:dataTableColumn>
