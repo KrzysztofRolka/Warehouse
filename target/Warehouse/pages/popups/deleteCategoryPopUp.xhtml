@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"	xmlns:h="http://java.sun.com/jsf/html"	xmlns:b="http://bootsfaces.net/ui"	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">	
+	<b:modal id="deleteCategoryPopUp" title="Uwaga!"	styleClass="deleteCategory" closable="true" closeOnEscape="false">
+		
+		<b:jumbotron>
+			<b:form id="deleteCategoryForm">
+				<p align="center">Czy napewno usunąć kategorię?</p>
+				<p style="font-weight: bold;" align="center">#{categoryController.category.getName()}</p>
+				<hr/>
+				<b:row>
+					<b:column span="6" offset="7">
+	             	    <b:commandButton action="#{categoryController.deleteCategory()}" value="Usuń" dismiss="modal" 
+	                	style="margin-right: 10px; margin-left: 30px;" oncomplete="$('deleteCategory').modal('hide')">
+	               		</b:commandButton>
+						<b:commandButton action="#{categoryController.OnSetup()}" look="primary" value="Anuluj" dissmis="modal"
+							oncomplete="$('deleteCategory').modal('hide')" >
+						</b:commandButton>
+					</b:column>
+				</b:row>
+			</b:form>
+		</b:jumbotron>
+
+	</b:modal>
+</ui:composition>

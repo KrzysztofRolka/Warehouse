@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"	xmlns:h="http://java.sun.com/jsf/html"	xmlns:b="http://bootsfaces.net/ui"	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">	
+	<b:modal id="deleteProductPopUp" title="Uwaga!"	styleClass="deleteProduct" closable="true" closeOnEscape="false">
+		
+		<b:jumbotron>
+			<b:form id="deleteProductForm">
+				<p align="center">Czy napewno usunąć produkt?</p>
+				<p style="font-weight: bold;" align="center">#{productController.product.getName()}</p>
+				<hr/>
+				<b:row>
+					<b:column span="6" offset="7">
+	             	    <b:commandButton action="#{productController.deleteProduct()}" value="Usuń" dismiss="modal" 
+	                	style="margin-right: 10px; margin-left: 30px;" oncomplete="$('deleteProduct').modal('hide')">
+	               		</b:commandButton>
+						<b:commandButton action="#{productController.OnSetup()}" look="primary" value="Anuluj" dissmis="modal"
+							oncomplete="$('deleteProduct').modal('hide')" >
+						</b:commandButton>
+					</b:column>
+				</b:row>
+			</b:form>
+		</b:jumbotron>
+
+	</b:modal>
+</ui:composition>

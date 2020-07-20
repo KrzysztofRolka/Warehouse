@@ -48,6 +48,7 @@ public class CategoryController implements Serializable{
 	
 	@PostConstruct
 	public void OnSetup() {
+		category = new Category();
 		categories = categoryDAO.findAll();
 	}
 	
@@ -57,10 +58,15 @@ public class CategoryController implements Serializable{
 		categories = categoryDAO.findAll();
 		return "categories_list";
 	}
+	
+	public void selectCategoryToDelete(Category category) {
+		this.category = category;
+	}
 
-	public String deleteCategory(int id) {
-		categoryDAO.delete(id);
+	public String deleteCategory() {
+		categoryDAO.delete(category.getCategoryId());
 		categories = categoryDAO.findAll();
+		category = new Category();
 		return "categories_list";
 	}
 

@@ -44,13 +44,17 @@
 							action="#{categoryController.onUpdate(category)}" />
 					</b:dataTableColumn>
 					<b:dataTableColumn label="Delete">
-						<b:commandLink icon="trash" 
-							action="#{categoryController.deleteCategory(category.categoryId)}"/>
+						<b:commandButton icon="trash" 
+							ajax="true" process="@this"
+							onclick="ajax:categoryController.selectCategoryToDelete(category)"
+							oncomplete="$('.deleteCategory').modal('show')"
+							update="deleteCategoryPopUp deleteCategoryForm" />
 					</b:dataTableColumn>
 				</b:dataTable>
 			</h:form>
 		</b:jumbotron>
 	</b:container>
 
+<ui:include src="/pages/popups/deleteCategoryPopUp.xhtml" />
 </h:body>
 </html>

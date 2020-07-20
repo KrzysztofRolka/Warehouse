@@ -37,7 +37,7 @@
 		<b:jumbotron>
 			<h2>Produkty:</h2>
 			<br />
-			<h:form>
+			<h:form id="productListFormId">
 				<b:dataTable value="#{productController.products}" var="product" style="width:100%" responsive="true"
                		onpage="console.log('page');" scroll-x="true" select="true"
                		row-style-class="#{product.requiredItem==true?'blueRow':'blackRow'}"
@@ -57,17 +57,20 @@
 					<b:dataTableColumn value="#{product.requiredItem==true?'TAK':'NIE'}"  label="Wymagany" />
 					<b:dataTableColumn value="#{product.description}" label="Opis" />
 					<b:dataTableColumn label="Edytuj">
-						<b:commandLink icon="pencil"
-							action="#{productController.onUpdate(product)}" />
+						<b:commandButton icon="pencil" action="#{productController.onUpdate(product)}"/>
 					</b:dataTableColumn>
 					<b:dataTableColumn label="Usuń">
-						<b:commandLink icon="trash" 
-							action="#{productController.deleteProduct(product.productId)}"/>
+						<b:commandButton icon="trash" 
+							ajax="true" process="@this"
+							onclick="ajax:productController.selectProductToDelete(product)"
+							oncomplete="$('.deleteProduct').modal('show')"
+							update="deleteProductPopUp deleteProductForm" />
 					</b:dataTableColumn>
 				</b:dataTable>
 			</h:form>
 		</b:jumbotron>
 	</b:container>
 
+<ui:include src="/pages/popups/deleteProductPopUp.xhtml" />
 </h:body>
 </html>

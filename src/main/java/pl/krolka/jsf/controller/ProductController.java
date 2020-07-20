@@ -69,6 +69,7 @@ public class ProductController implements Serializable {
 
 	@PostConstruct
 	public void OnSetup() {
+		product = new Product();
 		products = productDAO.findAll();
 		productsLowStock = productDAO.findAllLowStock();
 		productsWithPrice = productDAO.findAllWithPrice();
@@ -83,11 +84,16 @@ public class ProductController implements Serializable {
 		return "products_list";
 	}
 	
-	public String deleteProduct(int id) {
-		productDAO.delete(id);
+	public void selectProductToDelete(Product product) {
+		this.product = product;
+	}
+	
+	public String deleteProduct() {
+		productDAO.delete(product.getProductId());
 		products = productDAO.findAll();
 		productsLowStock = productDAO.findAllLowStock();
 		productsWithPrice = productDAO.findAllWithPrice();
+		product = new Product();
 		return "products_list";
 	}
 
