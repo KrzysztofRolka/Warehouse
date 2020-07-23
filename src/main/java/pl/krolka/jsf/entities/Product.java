@@ -25,7 +25,7 @@ public class Product {
 	@Column(name = "part_numb")
 	private String partNumb;
 
-	@ManyToOne 
+	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category categoryId;
 

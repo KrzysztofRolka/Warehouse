@@ -8,6 +8,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import net.bootsfaces.utils.FacesMessages;
 import pl.krolka.jsf.dao.CategoryDAO;
 import pl.krolka.jsf.entities.Category;
 
@@ -64,10 +65,19 @@ public class CategoryController implements Serializable{
 	}
 
 	public String deleteCategory() {
-		categoryDAO.delete(category.getCategoryId());
-		categories = categoryDAO.findAll();
-		category = new Category();
-		return "categories_list";
+		try {
+			categoryDAO.delete(category.getCategoryId());
+			categories = categoryDAO.findAll();
+			category = new Category();
+			FacesMessages.info("Kategoria poprawnie usunieta","");
+			return "categories_list";	
+		}catch (Exception e) {
+			category = new Category();
+			FacesMessages.error("Blad usuwania! Kategoria uzywana jest w co najmniej jednym produkcie!", "Something has gone <strong>wrong</strong>.");
+			return "categories_list";	
+		}
+		
+		
 	}
 
 	public String updateCategory() {

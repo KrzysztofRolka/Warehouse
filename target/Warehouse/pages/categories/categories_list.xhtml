@@ -54,7 +54,9 @@
 			</h:form>
 		</b:jumbotron>
 	</b:container>
-
-<ui:include src="/pages/popups/deleteCategoryPopUp.xhtml" />
+	
+	<b:growl id="growlMsg" globalOnly="true" placementFrom="bottom" placementAlign="right" styleClass="growl-top" allowDismiss="true" delay="10000" escape="true" />
+		
+	<ui:include src="/pages/popups/deleteCategoryPopUp.xhtml" />
 </h:body>
 </html>
