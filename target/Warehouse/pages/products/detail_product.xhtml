@@ -14,7 +14,6 @@
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
 	<ui:include src="/pages/shared/navbar.xhtml" />
-
 	<br />
 	<br />
 	<br />
@@ -27,8 +26,8 @@
 			<h2>Informacje o produkcie:</h2>
 			<br />
 
-			<h:form>
-				<h:panelGrid columns="2" size="lg" >
+			<b:form>
+				<h:panelGrid columns="2" >
 
 					<b:inputText id="inputTextName" label="Nazwa Produktu" placeholder="Nazwa Produktu" 
 					value="#{productController.productDetail.name}" disabled="true">
@@ -79,12 +78,12 @@
 					</b:inputText>
 					
 				</h:panelGrid>
-			</h:form>
+			</b:form>
 			<br />
-			<h:form>
+			<b:form>
 				<b:commandLink value="Powrót do listy produktów."
 					action="products_list" />
-			</h:form>
+			</b:form>
 
 		</b:jumbotron>
 	</b:container>

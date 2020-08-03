@@ -1,7 +1,7 @@
-C:\Users\Admin\eclipse-workspace\warehouse\src\main\java\pl\krolka\jsf\controller\CategoryController.java
-C:\Users\Admin\eclipse-workspace\warehouse\src\main\java\pl\krolka\jsf\validator\InputTextValidator.java
-C:\Users\Admin\eclipse-workspace\warehouse\src\main\java\pl\krolka\jsf\dao\CategoryDAO.java
-C:\Users\Admin\eclipse-workspace\warehouse\src\main\java\pl\krolka\jsf\controller\ProductController.java
-C:\Users\Admin\eclipse-workspace\warehouse\src\main\java\pl\krolka\jsf\dao\ProductDAO.java
-C:\Users\Admin\eclipse-workspace\warehouse\src\main\java\pl\krolka\jsf\entities\Category.java
-C:\Users\Admin\eclipse-workspace\warehouse\src\main\java\pl\krolka\jsf\entities\Product.java
+/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/entities/ProductEntity.java
+/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/validator/InputTextValidator.java
+/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/controller/ProductController.java
+/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/entities/CategoryEntity.java
+/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/controller/CategoryController.java
+/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/dao/ProductDAO.java
+/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/dao/CategoryDAO.java

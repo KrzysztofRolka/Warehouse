@@ -1,7 +1,7 @@
-pl\krolka\jsf\controller\CategoryController.class
-pl\krolka\jsf\dao\CategoryDAO.class
-pl\krolka\jsf\dao\ProductDAO.class
-pl\krolka\jsf\entities\Product.class
-pl\krolka\jsf\controller\ProductController.class
-pl\krolka\jsf\validator\InputTextValidator.class
-pl\krolka\jsf\entities\Category.class
+pl/warehouse/jsf/dao/ProductDAO.class
+pl/warehouse/jsf/controller/CategoryController.class
+pl/warehouse/jsf/entities/CategoryEntity.class
+pl/warehouse/jsf/entities/ProductEntity.class
+pl/warehouse/jsf/validator/InputTextValidator.class
+pl/warehouse/jsf/controller/ProductController.class
+pl/warehouse/jsf/dao/CategoryDAO.class

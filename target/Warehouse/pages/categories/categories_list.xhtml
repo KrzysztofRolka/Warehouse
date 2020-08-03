@@ -9,6 +9,9 @@
 
 <h:head>
 	<title>Lista kategorii</title>
+	<f:metadata>
+  		<f:viewAction action="#{categoryController.OnSetup()}" />
+	</f:metadata>
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
@@ -23,10 +26,10 @@
 			<h1>Kategorie</h1>
 			<p>Kliknij przycisk poniżej by dodać nową kategorie do bazy danych.</p>
 
-			<h:form>
+			<b:form>
 				<b:commandButton class="btn btn-lg btn-info" id="add_std_btn"
 					value="Dodaj kategorie" action="add_category_form"></b:commandButton>
-			</h:form>
+			</b:form>
 			<br />
 		</b:well>
 	</b:container>
@@ -35,7 +38,7 @@
 		<b:jumbotron>
 			<h2>Kategorie:</h2>
 			<br />
-			<h:form>
+			<b:form>
 				<b:dataTable value="#{categoryController.categories}" var="category"
 					onpage="console.log('page');">
 					<b:dataTableColumn value="#{category.name}" label="Nazwa" />
@@ -51,7 +54,7 @@
 							update="deleteCategoryPopUp deleteCategoryForm" />
 					</b:dataTableColumn>
 				</b:dataTable>
-			</h:form>
+			</b:form>
 		</b:jumbotron>
 	</b:container>
 	

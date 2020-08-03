@@ -13,7 +13,7 @@
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
-	<ui:include src="/pages/shared/navbar.xhtml" />
+	<ui:include src="/pages/shared/navbar.xhtml"/>
 
 	<br />
 	<br />
@@ -28,7 +28,7 @@
 			Nazwę zaczynamy pisać wielką literą. Przed dodaniem kategorii upewnij się czy nie została 
 			ona stworzona wcześniej.</p>
 
-			<h:form>
+			<b:form>
 				<h:panelGrid columns="2">
 				
 					<b:inputText id="inputTextName" label="Nazwa Kategorii"
@@ -44,13 +44,13 @@
 					</b:commandButton>
 					
 				</h:panelGrid>
-			</h:form>
+			</b:form>
 			
 			<br />
 			
-			<h:form>
+			<b:form>
 				<b:commandLink value="Powrót do listy kategorii. " action="categories_list" />
-			</h:form>
+			</b:form>
 
 		</b:jumbotron>
 	</b:container>

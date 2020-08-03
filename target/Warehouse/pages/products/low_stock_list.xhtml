@@ -22,7 +22,7 @@
 		<b:jumbotron>
 			<h2>Lista krytycznych stanów:</h2>
 			<br />
-			<h:form>
+			<b:form>
 				<b:dataTable value="#{productController.productsLowStock}" var="product" style="width:100%" responsive="true"
                		onpage="console.log('page');" scroll-x="true" select="true"
                	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', exportOptions: {columns: ':visible'}}]">
@@ -37,7 +37,7 @@
 					<b:dataTableColumn value="#{product.sumOfStocks}" label="STAN" content-style="color:green; font-weight:bold"/>
 					<b:dataTableColumn value="#{product.description}" label="Opis" />
 				</b:dataTable>
-			</h:form>
+			</b:form>
 		</b:jumbotron>
 	</b:container>
 

@@ -27,8 +27,8 @@
 			<h2>Edytuj produkt:</h2>
 			<br />
 
-			<h:form>
-				<h:panelGrid columns="2" size="lg" >
+			<b:form>
+				<h:panelGrid columns="2" >
 
 					<b:inputText id="inputTextName" label="Nazwa Produktu" placeholder="Nazwa Produktu" 
 					value="#{productController.productToUpdate.name}" required="true" requiredMessage="Pole Nazwa Produktu jest wymagane!"
@@ -84,12 +84,12 @@
 						id="button" action="#{productController.updateProduct()}"></b:commandButton>
 
 				</h:panelGrid>
-			</h:form>
+			</b:form>
 			<br />
-			<h:form>
+			<b:form>
 				<b:commandLink value="Powrót do listy produktów."
 					action="products_list" />
-			</h:form>
+			</b:form>
 
 		</b:jumbotron>
 	</b:container>

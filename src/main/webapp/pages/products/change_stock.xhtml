@@ -23,7 +23,7 @@
 		<b:jumbotron>
 		<h2>Zmiana stanu:</h2>
 		<br />
-		<h:form>
+		<b:form>
 				<b:dataTable value="#{productController.products}" var="product" scroll-x="true" select="false" columnVisibility="true" width="5em" responsive="true">
                		
 					<b:dataTableColumn value="#{product.name}" label="Nazwa" />
@@ -49,7 +49,7 @@
 					</b:dataTableColumn>
 					
 					<b:dataTableColumn label = "Zatwierdź zmiany" >
-      					<b:commandButton value="Zmień Stan" icon="edit" ajax="true" onclick="ajax:product.updateProduct(); javascript:return false;" >
+      					<b:commandButton value="Zmień Stan" icon="edit" ajax="true" onclick="ajax: productController.fastUpdate(product); javascript:return false;" >
 	     					 <f:ajax execute="@this" render="@form" />
      					 </b:commandButton>
      				</b:dataTableColumn>
@@ -57,7 +57,7 @@
 					
      				
 				</b:dataTable>
-			</h:form>
+			</b:form>
 
 		</b:jumbotron>
 	</b:container>

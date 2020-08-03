@@ -10,6 +10,9 @@
 <h:head>
 	<h:outputStylesheet library="css" name="warehouse.css" />
 	<title>Lista produktów</title>
+	<f:metadata>
+  		<f:viewAction action="#{productController.OnSetup()}" />
+	</f:metadata>
 	
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
@@ -25,10 +28,10 @@
 			<h1>Produkty</h1>
 			<p>Kliknij przycisk poniżej by dodać nowy produkt do bazy danych.</p>
 
-			<h:form>
+			<b:form>
 				<b:commandButton class="btn btn-lg btn-info" id="add_std_btn"
 					value="Dodaj produkt" action="add_product_form"></b:commandButton>
-			</h:form>
+			</b:form>
 			<br />
 		</b:well>
 	</b:container>
@@ -37,7 +40,7 @@
 		<b:jumbotron>
 			<h2>Produkty:</h2>
 			<br />
-			<h:form id="productListFormId">
+			<b:form id="productListFormId">
 				<b:dataTable value="#{productController.products}" var="product" style="width:100%" responsive="true"
                		onpage="console.log('page');" scroll-x="true" select="true"
                		row-style-class="#{product.requiredItem==true?'blueRow':'blackRow'}"
@@ -67,9 +70,11 @@
 							update="deleteProductPopUp deleteProductForm" />
 					</b:dataTableColumn>
 				</b:dataTable>
-			</h:form>
+			</b:form>
 		</b:jumbotron>
 	</b:container>
+	
+	<b:growl id="growlMsg" globalOnly="true" placementFrom="bottom" placementAlign="right" styleClass="growl-top" allowDismiss="true" delay="10000" escape="true" />
 
 <ui:include src="/pages/popups/deleteProductPopUp.xhtml" />
 </h:body>

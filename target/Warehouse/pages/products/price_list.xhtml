@@ -12,7 +12,7 @@
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 
-	<ui:include src="/pages/shared/navbar.xhtml" />
+		<ui:include src="/pages/shared/navbar.xhtml" />
 	
 	<br />
 	<br />
@@ -23,7 +23,7 @@
 		<b:jumbotron>
 			<h2>Cennik:</h2>
 			<br />
-			<h:form>
+			<b:form>
 				<b:dataTable value="#{productController.productsWithPrice}" var="product" style="width:100%" responsive="true"
                		onpage="console.log('page');" scroll-x="true" select="true"
                	     custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A4', exportOptions: {columns: ':visible'}}]">
@@ -34,7 +34,7 @@
 					<b:dataTableColumn value="#{product.priceWithVAT}" label="Cena brutto" />
 					<b:dataTableColumn value="#{product.description}" label="Opis" />
 				</b:dataTable>
-			</h:form>
+			</b:form>
 		</b:jumbotron>
 	</b:container>
 
