@@ -92,6 +92,5 @@ public class CategoryController implements Serializable{
 		categoryToUpdate = category;
 		return "update_category_form";
 	}
-	
 
 }

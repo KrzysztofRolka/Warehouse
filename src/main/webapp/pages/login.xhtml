@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+ 	<h:head>
+        <title>Zaloguj sie </title>
+        <meta name="author" content="Riccardo Massera"></meta>
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 330px;
+                padding: 15px;
+            }
+        </style>
+    </h:head>
+    
+    
+    <h:body style="padding-top: 60px; background-color: #add;">
+    
+    <ui:fragment rendered="#{identity.loggedIn}">
+    <div>Congratulations! You are currently logged in as: <b>#{identity.account.loginName}</b></div>
+
+    <ui:fragment rendered="#{authorizationChecker.isMember('users')}">
+      <div>You are a member of the 'users' group.</div>
+    </ui:fragment>
+    
+
+    <ui:fragment rendered="#{authorizationChecker.hasApplicationRole('admin')}">
+      <div>You have role: 'admin'.</div>
+    </ui:fragment>
+    
+    
+    <ui:fragment rendered="#{authorizationChecker.hasGroupRole('admin', 'users')}">
+      <div>You have been granted the 'admin' role in the 'users' group.</div>
+    </ui:fragment>
+
+    <h:form>
+        <h:commandButton id="logout" value="Log out" action="#{identity.logout}"/>
+    </h:form>
+</ui:fragment>
+    
+    
+
+    
+    
+        <b:container>
+            <h:form styleClass="form-signin" prependId="false">
+                <h2 class="form-signin-heading">Zaloguj sie</h2>
+                <b:messages/>
+                <b:inputText id="j_username" placeholder="Nazwa uzytkownika" value="#{loginCredentials.userId}" required="true" requiredMessage="Pole nazwa jest jest wymagane!">
+                    <f:facet name="prepend">
+                        <b:icon name="user" />
+                    </f:facet>
+                </b:inputText>
+                <b:inputText id="j_password" placeholder="Haslo" type="password" value="#{loginCredentials.password}" required="true" requiredMessage="Pole haslo jest wymagane!">
+                    <f:facet name="prepend">
+                        <b:iconAwesome name="key" />
+                    </f:facet>
+                </b:inputText>
+                <b:commandButton id="login" look="primary btn-block" value="Zaloguj" icon="log-in" size="lg" action="#{loginController.login}"/>
+            </h:form>
+        </b:container>
+    </h:body>
+</html>

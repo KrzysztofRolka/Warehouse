@@ -5,6 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:b="http://bootsfaces.net/ui">
 
+  	<b:form>
 	<b:navBar brand="Warehouse" brandHref="#" fixed="top" inverse="true">
 		<b:navbarLinks>
 		<b:navLink value="Strona główna" outcome="/pages/dashboard/home.xhtml" iconAwesome="dashboard" icon-size="1x"></b:navLink>
@@ -29,7 +30,15 @@
                     <b:navLink value="(wkrótce.. Użytkownicy)" href="#"></b:navLink>
                     <b:navLink value="(wkrótce.. Ustawienia)" href="#"></b:navLink>
                 </b:dropMenu>
-		</b:navbarLinks>
+                
+                 <ui:fragment rendered="#{identity.loggedIn}">
+   			 			<b:dropMenu  value="Witaj: #{identity.account.loginName}" iconAwesome="user" icon-size="1x" >
+   			 				<b:navCommandLink  id="logout" value="Wyloguj" action="#{loginController.logout}" icon-awesome="sign-out"  icon-size="1x" />
+	    				</b:dropMenu>
+   				 </ui:fragment>
+   				 
+  		</b:navbarLinks>
 	</b:navBar>
+	</b:form>
 	
 </ui:composition>

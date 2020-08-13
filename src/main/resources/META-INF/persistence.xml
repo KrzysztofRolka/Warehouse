@@ -4,5 +4,26 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
     <persistence-unit name="WarehouseDS" transaction-type="JTA">
         <jta-data-source>java:/WarehouseDS</jta-data-source>
+        
+        <class>org.picketlink.idm.jpa.model.sample.simple.AttributedTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.AccountTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.RoleTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.GroupTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.IdentityTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.RelationshipTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.RelationshipIdentityTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.PartitionTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.PasswordCredentialTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.AttributeTypeEntity</class>
+        
+        <properties>
+			<!-- Hibernate properties -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.connection.characterEncoding" value="UTF-8" />
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<!-- <property name="hibernate.physical_naming_strategy" value="pl.ctn.ctnscheduler.configuration.PhysicalNamingStrategyImpl" />  -->
+		</properties>
+        
+        
     </persistence-unit>
 </persistence>
