@@ -33,13 +33,13 @@ public class SecurityInitializer {
   //@PostConstruct only on first run
   public void create() {
     // Create user Krzysiek
-    final User krolka = new User("asd");
-    krolka.setEmail("asd@op.pl");
-    krolka.setFirstName("asd");
-    krolka.setLastName("asd");
+	  final User krolka = new User("asd");
+	    krolka.setEmail("asd@op.pl");
+	    krolka.setFirstName("asd");
+	    krolka.setLastName("asd");
 
     identityManager.add(krolka);
-    identityManager.updateCredential(krolka, new Password("123"));
+    identityManager.updateCredential(krolka, new Password("qwe123"));
 
     // Create roles "admin" and "serviceman" and "customer"
     final Role admin = new Role("admin"); 

@@ -32,7 +32,8 @@
                 </b:dropMenu>
                 
                  <ui:fragment rendered="#{identity.loggedIn}">
-   			 			<b:dropMenu  value="Witaj: #{identity.account.loginName}" iconAwesome="user" icon-size="1x" >
+   			 			<b:dropMenu  value="Witaj: #{identity.account.firstName}" iconAwesome="user" icon-size="1x" >
+   			 				<b:navLink value="Edytuj profil" outcome="/pages/users/edit_profile.xhtml" iconAwesome="gears" icon-size="1x"></b:navLink>
    			 				<b:navCommandLink  id="logout" value="Wyloguj" action="#{loginController.logout}" icon-awesome="sign-out"  icon-size="1x" />
 	    				</b:dropMenu>
    				 </ui:fragment>
