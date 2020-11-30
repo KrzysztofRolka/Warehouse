@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Zarzadzaj uzytkownikami</title>
+</h:head>
+
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+
+	<ui:include src="/pages/shared/navbar.xhtml" />
+	
+	<br />
+	<br />
+	<br />
+	
+	<b:container>
+		<b:jumbotron>
+			<h2>Dodaj nowego uzytkownika:</h2>
+			
+				<b:form>
+				
+				<b:commandButton class="btn btn-lg btn-info" id="add_std_btn"
+					value="Dodaj uzytkownika" action="add_user_form"></b:commandButton>
+				</b:form>
+			
+
+		</b:jumbotron>
+	</b:container>
+	
+	
+	
+	<b:container>
+		<b:jumbotron>
+			<h2>Lista uzytkownikow:</h2>
+			<br />
+						<b:form id="productListFormId">
+				<b:dataTable value="#{usersController.users}" var="user" style="width:100%" responsive="true"
+               		onpage="console.log('page');" scroll-x="true" select="true"
+               		custom-options="dom: 'lfrtiBp',buttons: ['colvis',{extend: 'excelHtml5', exportOptions: {columns: ':visible'}},{extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A4', exportOptions: {columns: ':visible'}}]">
+					<b:dataTableColumn value="#{user.loginName}" label="Login" />
+					<b:dataTableColumn value="#{user.firstName}" label="Imie" />
+					<b:dataTableColumn value="#{user.lastName}" label="Nazwisko" />
+					<b:dataTableColumn value="#{user.email}" label="Email" />
+					<b:dataTableColumn label="Edytuj">
+						<b:commandButton icon="pencil" action="#{usersController.onUpdate(user)}"/>
+					</b:dataTableColumn>
+					<b:dataTableColumn label="Zmień hasło">
+						<b:commandButton icon="wrench" action="#{usersController.changePassForUser(user)}"/>
+					</b:dataTableColumn>
+					<b:dataTableColumn label="Usuń" >
+						<b:commandButton icon="trash" action="#{usersController.deleteUser(user)}"/> 
+					</b:dataTableColumn>
+				</b:dataTable>
+			</b:form>
+			
+
+		</b:jumbotron>
+	</b:container>
+	
+</h:body>
+</html>

@@ -26,11 +26,12 @@
                     <b:navLink value="(wkrótce..Lista maszyn)" href="#"></b:navLink>
                     <b:navLink value="(wkrótce..Lista klientów)" href="#"></b:navLink>
                 </b:dropMenu>
-                 <b:dropMenu value="Administracja">
-                    <b:navLink value="(wkrótce.. Użytkownicy)" href="#"></b:navLink>
+                <ui:fragment rendered="#{authorizationChecker.hasApplicationRole('admin')}">
+                 <b:dropMenu value="Administracja" iconAwesome="sliders" icon-size="1x">
+                    <b:navLink value="Uzytkownicy" outcome="/pages/users/manage_users.xhtml" iconAwesome="users" icon-size="1x"></b:navLink>
                     <b:navLink value="(wkrótce.. Ustawienia)" href="#"></b:navLink>
                 </b:dropMenu>
-                
+                </ui:fragment>
                  <ui:fragment rendered="#{identity.loggedIn}">
    			 			<b:dropMenu  value="Witaj: #{identity.account.firstName}" iconAwesome="user" icon-size="1x" >
    			 				<b:navLink value="Edytuj profil" outcome="/pages/users/edit_profile.xhtml" iconAwesome="gears" icon-size="1x"></b:navLink>

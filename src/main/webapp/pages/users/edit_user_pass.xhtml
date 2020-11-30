@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Zmień hasło profil</title>
+</h:head>
+
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+
+	<ui:include src="/pages/shared/navbar.xhtml" />
+	
+	<br />
+	<br />
+	<br />
+
+	<b:container>
+		<b:jumbotron>
+			<h2>Zmień hasło dla użytkownika:</h2>
+			<h3>#{usersController.userToUpdate.loginName}</h3>
+			<br />
+			<b:form>
+			
+				<b:messages/>
+				<b:inputText label="Podaj nowe haslo" value="#{changePasswordController.password}" type="password" placeholder="Podaj nowe haslo" required="true" required-message="Pole haslo jest wymagane!"></b:inputText>
+			 	<b:inputText label="Potwierdz haslo" value="#{changePasswordController.confirmPassword}" type="password" placeholder="Potwierdz haslo" required="true" required-message="Pole potwierdz haslo jest wymagane!"></b:inputText>
+			 	
+			 	<b:commandButton class="btn btn-lg btn-info" value="Zmien haslo"
+						id="button" action="#{changePasswordController.changePasswordForUser(usersController.userToUpdate)}"></b:commandButton>
+			 	
+			</b:form>
+		</b:jumbotron>
+	</b:container>
+
+</h:body>
+</html>

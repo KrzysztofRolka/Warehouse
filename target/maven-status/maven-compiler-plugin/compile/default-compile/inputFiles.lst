@@ -1,8 +1,10 @@
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/controller/EditUserController.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/controller/ChangePasswordController.java
+/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/controller/UsersController.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/dao/UserDAO.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/entities/UserEntity.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/entities/CategoryEntity.java
+/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/services/UsersService.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/authorization/picketlink/SecurityInitializer.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/authorization/picketlink/HttpSecurityConfiguration.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/authorization/picketlink/AuthorizationChecker.java
@@ -10,7 +12,6 @@
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/dao/ProductDAO.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/entities/ProductEntity.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/authorization/web/Resources.java
-/home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/services/IdentityService.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/validator/InputTextValidator.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/authorization/web/LoginController.java
 /home/krzysiek/eclipse-workspace/Warehouse/src/main/java/pl/warehouse/jsf/controller/ProductController.java

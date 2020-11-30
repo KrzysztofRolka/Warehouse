@@ -21,7 +21,7 @@
 
 	<b:container>
 		<b:jumbotron>
-			<h2>Zmien haslo:</h2>
+			<h2>Zmień hasło:</h2>
 			<br />
 			<b:form>
 			
@@ -38,13 +38,13 @@
 	
 		<b:container>
 		<b:jumbotron>
-			<h2>Zmien dane:</h2>
+			<h2>Zmień dane:</h2>
 			<br />
 			<b:form>
 			
 				<b:messages/>
 				<b:inputText label="Login" value="#{editUserController.currentUser.loginName}" required="true" required-message="Pole Login jest wymagane!"></b:inputText>
-			 	<b:inputText label="Imie" value="#{editUserController.currentUser.firstName}" required="true" required-message="Pole Imie jest wymagane!"></b:inputText>
+			 	<b:inputText label="Imie" valuecreate="#{editUserController.currentUser.firstName}" required="true" required-message="Pole Imie jest wymagane!"></b:inputText>
 			 	<b:inputText label="Nazwisko" value="#{editUserController.currentUser.lastName}" required="true" required-message="Pole Nazwisko jest wymagane!"></b:inputText>
 			 	<b:inputText label="Email" value="#{editUserController.currentUser.email}" type="email" required="true" required-message="Pole Email jest wymagane!"></b:inputText>
 			 	
@@ -54,6 +54,21 @@
 			</b:form>
 		</b:jumbotron>
 	</b:container>
+
+	<ui:fragment rendered="#{authorizationChecker.hasNotApplicationRole('superadmin')}">
+	<b:container>
+		<b:jumbotron>
+			<h2>Usuń konto:</h2>
+			<br />
+			<b:form>
+			
+			 	<b:commandButton class="btn btn-lg btn-danger" value="Usuń konto"
+						id="button" action="#{editUserController.deleteUser()}"></b:commandButton>
+			 	
+			</b:form>
+		</b:jumbotron>
+	</b:container>
+	</ui:fragment>
 	
 </h:body>
 </html>

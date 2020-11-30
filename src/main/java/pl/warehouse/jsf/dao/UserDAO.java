@@ -12,14 +12,12 @@ import org.picketlink.idm.model.basic.User;
 import org.picketlink.idm.query.Condition;
 import org.picketlink.idm.query.IdentityQueryBuilder;
 
-import pl.warehouse.jsf.entities.UserEntity;
-
 
 @Stateless
 public class UserDAO {
 
 	@Inject
-    private IdentityManager identityManager;
+	private IdentityManager identityManager;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -29,19 +27,12 @@ public class UserDAO {
      * 
      * @return {@link List} of {@link User}
      */
-    public List<User> getUsers() {
-	final IdentityQueryBuilder queryBuilder = identityManager.getQueryBuilder();
-	final Condition condition = queryBuilder.equal(User.ENABLED, true);
-	return queryBuilder.createIdentityQuery(User.class).where(condition).getResultList();
-    }
-
-    public UserEntity getById(String id) {
-    	return entityManager.find(UserEntity.class, id);
-    }
     
-	public void updateUser(UserEntity user) {
-		entityManager.merge(user);
-		entityManager.flush();
-	}
+    public List<User> getUsersList() {
+    	final IdentityQueryBuilder queryBuilder = identityManager.getQueryBuilder();
+		final Condition condition = queryBuilder.equal(User.ENABLED, true);
+		return queryBuilder.createIdentityQuery(User.class).where(condition).getResultList();
+    }
+	
 
 }

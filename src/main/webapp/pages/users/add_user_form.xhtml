@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Dodaj uzytkownika:</title>
+
+</h:head>
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+
+	<ui:include src="/pages/shared/navbar.xhtml" />
+
+	<br />
+	<br />
+	<br />
+
+	<b:container>
+		<b:jumbotron>
+
+
+
+			<h2>Dodaj uzytkownika:</h2>
+			<br />
+
+			<b:form>
+				<h:panelGrid columns="2" >
+
+					<b:inputText id="inputFirstName" label="Imie" placeholder="Imie" 
+					value="#{usersController.newUser.firstName}" required="true" requiredMessage="Pole Imie jest wymagane!"
+					maxlength="45" validator="inputTextValidator" >
+					</b:inputText>
+					
+					<b:inputText id="inputLastName" label="Nazwisko" placeholder="Nazwisko" 
+					value="#{usersController.newUser.lastName}" required="true" requiredMessage="Pole Nazwisko jest wymagane!"
+					maxlength="45" validator="inputTextValidator" offset="1">
+					</b:inputText>
+					<b:message for="inputFirstName"/>
+					<b:message for="inputLastName"/>
+					
+					<b:inputText id="inputLoginName" label="Login" placeholder="Login" 
+					value="#{usersController.newUser.loginName}" required="true" requiredMessage="Pole Login jest wymagane!"
+					maxlength="45" validator="inputTextValidator" >
+					</b:inputText>
+									
+					<b:inputText id="inputEmail" label="Emial" placeholder="Email" 
+					value="#{usersController.newUser.email}" required="true" requiredMessage="Pole Email jest wymagane!"
+					maxlength="45" type="email" offset="1">
+					</b:inputText>
+					
+					<b:message for="inputLoginName"/>
+					<b:message for="inputEmail"/>
+					
+									
+					<b:inputText id="inputPassword" label="Haslo" placeholder="Haslo"
+					value="#{usersController.password}" required="true" requiredMessage="Pole Haslo jest wymagane!"
+					maxlength="45">
+					</b:inputText>
+					<b:message for="inputPassword"/>
+									
+					<br />
+					
+					<b:switch value="#{usersController.isAdmin}" label="Prawa administratora ?"/>
+					<b:switch value="#{usersController.isServiceman}" label="Prawa serwisanta ?"/>
+					<b:switch value="#{usersController.isCustomer}" label="Prawa klienta ?"/>
+
+					<b:commandButton class="btn btn-lg btn-info" value="Zapisz"
+						id="button" action="#{usersController.createNewUser}"></b:commandButton>
+
+				</h:panelGrid>
+			</b:form>
+			<br />
+			<b:form>
+				<b:commandLink value="Powrót do listy zarzadzenia uzytkownikami."
+					action="manage_users" />
+			</b:form>
+
+		</b:jumbotron>
+	</b:container>
+
+</h:body>
+</html>

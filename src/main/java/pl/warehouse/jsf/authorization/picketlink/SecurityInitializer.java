@@ -1,7 +1,6 @@
 package pl.warehouse.jsf.authorization.picketlink;
 
 import static org.picketlink.idm.model.basic.BasicModel.addToGroup;
-import static org.picketlink.idm.model.basic.BasicModel.grantGroupRole;
 
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -10,6 +9,7 @@ import javax.inject.Inject;
 import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.RelationshipManager;
 import org.picketlink.idm.credential.Password;
+import org.picketlink.idm.model.basic.BasicModel;
 import org.picketlink.idm.model.basic.Group;
 import org.picketlink.idm.model.basic.Role;
 import org.picketlink.idm.model.basic.User;
@@ -30,13 +30,16 @@ public class SecurityInitializer {
   @Inject
   private RelationshipManager relationshipManager;
 
-  //@PostConstruct only on first run
-  public void create() {
+  
+  				
+  // @PostConstruct only on first run 
+  
+  	public void create() {
     // Create user Krzysiek
-	  final User krolka = new User("asd");
-	    krolka.setEmail("asd@op.pl");
-	    krolka.setFirstName("asd");
-	    krolka.setLastName("asd");
+    final User krolka = new User("krolka");
+    krolka.setEmail("krzysztofrolka@op.pl");
+    krolka.setFirstName("Krzysztof");
+    krolka.setLastName("Rolka");
 
     identityManager.add(krolka);
     identityManager.updateCredential(krolka, new Password("qwe123"));
@@ -48,7 +51,9 @@ public class SecurityInitializer {
     identityManager.add(serviceman);
     final Role customer = new Role("customer");
     identityManager.add(customer);
-
+    final Role superadmin = new Role("superadmin");
+    identityManager.add(superadmin);
+    
     // Create group "users"
     final Group users = new Group("users");
     identityManager.add(users);
@@ -57,8 +62,10 @@ public class SecurityInitializer {
     addToGroup(relationshipManager, krolka, users);
 
     // Make krolka a "admin" of the "users", "admin", "customer" group
-    grantGroupRole(relationshipManager, krolka, admin, users);
-    grantGroupRole(relationshipManager, krolka, serviceman, users);
-    grantGroupRole(relationshipManager, krolka, customer, users);
+    BasicModel.grantRole(relationshipManager, krolka, admin);
+    BasicModel.grantRole(relationshipManager, krolka, serviceman);
+    BasicModel.grantRole(relationshipManager, krolka, customer);
+    BasicModel.grantRole(relationshipManager, krolka, superadmin);
+    
   }
 }

@@ -36,6 +36,11 @@ public class AuthorizationChecker {
     return hasRole(this.relationshipManager, this.identity.getAccount(), role);
   }
 
+  public boolean hasNotApplicationRole(String roleName) {
+	    final Role role = getRole(this.identityManager, roleName);
+	    return !hasRole(this.relationshipManager, this.identity.getAccount(), role);
+	  }
+  
   public boolean isMember(String groupName) {
     final Group group = getGroup(this.identityManager, groupName);
     return BasicModel.isMember(this.relationshipManager, this.identity.getAccount(), group);

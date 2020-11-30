@@ -8,12 +8,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.picketlink.Identity;
+import org.picketlink.idm.model.basic.User;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.warehouse.jsf.dao.UserDAO;
-import pl.warehouse.jsf.entities.UserEntity;
+import pl.warehouse.jsf.services.UsersService;
 
 @Named
 @SessionScoped
@@ -24,27 +24,38 @@ public class EditUserController implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	UserDAO userDAO;
+	UsersService usersService;
 	
 	@Inject
 	private Identity identity;
 	
 	@Getter
 	@Setter
-	UserEntity currentUser;
+	User currentUser;
 	
 	@PostConstruct
 	public void OnSetup() {
-		currentUser = userDAO.getById(identity.getAccount().getId());
+		currentUser = (User) identity.getAccount();
 	}
 	
 	public String updateUser() {
 		try {
-			userDAO.updateUser(currentUser);
-			currentUser = userDAO.getById(identity.getAccount().getId());
+			usersService.updateUser(currentUser);
+			currentUser = (User) identity.getAccount();
 			return "edit_profile";
 		} catch (Exception e) {
 			return "edit_profile";
 		}
 	}
+	
+	public String deleteUser() {
+		try {
+			usersService.deleteUser(currentUser);
+			this.identity.logout();
+			return "/pages/login.xhtml?faces-redirect=true";
+		} catch (Exception e) {
+			return "edit_profile";
+		}
+	}
+	
 }
